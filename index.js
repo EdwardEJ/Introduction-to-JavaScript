@@ -97,45 +97,45 @@ console.log(dogFeeder(15, 1));
 // use math.random to determine the computers choice 
 // hint while you can complete this with only conditionals based on strings it may help to equate choice to a number 
 
-function rockPapersSissors(shoot) {
+// function rockPapersSissors(shoot) {
 
-  let phrase = 'It\'s a draw!';
+//   let phrase = `It's a draw!`;
 
-  let compChoice = Math.random();
+//   let compChoice = Math.random();
 
-  if (compChoice <= 0.33) {
-    compChoice = 'rock';
-  } else if (compChoice > 0.33 && compChoice <= 0.66) {
-    compChoice = 'scissors';
-  } else {
-    compChoice = 'paper';
-  }
+//   if (compChoice <= 0.33) {
+//     compChoice = 'rock';
+//   } else if (compChoice > 0.33 && compChoice <= 0.66) {
+//     compChoice = 'scissors';
+//   } else {
+//     compChoice = 'paper';
+//   }
 
-  if (compChoice === 'rock') {
-    if (shoot === 'paper') {
-      phrase = 'You win';
-    } else if (shoot === 'scissors') {
-      phrase = 'You lose';
-    }
-  }
-  if (compChoice === 'scissors') {
-    if (shoot === 'rock') {
-      phrase = 'You win!';
-    } else if (shoot === 'paper') {
-      phrase = 'You lose!';
-    }
-  }
-  if (compChoice === 'paper') {
-    if (shoot === 'rock') {
-      phrase = 'You lose!';
-    } else if (shoot === 'scissors') {
-      phrase = 'You win!';
-    }
-  }
-  return phrase;
-}
+//   if (compChoice === 'rock') {
+//     if (shoot === 'paper') {
+//       phrase = 'You win';
+//     } else if (shoot === 'scissors') {
+//       phrase = 'You lose';
+//     }
+//   }
+//   if (compChoice === 'scissors') {
+//     if (shoot === 'rock') {
+//       phrase = 'You win!';
+//     } else if (shoot === 'paper') {
+//       phrase = 'You lose!';
+//     }
+//   }
+//   if (compChoice === 'paper') {
+//     if (shoot === 'rock') {
+//       phrase = 'You lose!';
+//     } else if (shoot === 'scissors') {
+//       phrase = 'You win!';
+//     }
+//   }
+//   return phrase;
+// }
 
-rockPapersSissors('paper');
+// rockPapersSissors('paper');
 
 
 /************************************************************** Task 5 **************************************************************/
@@ -164,7 +164,7 @@ function convertFeet(num) {
 
 function annoyingSong(num) {
   for (let i = num; i > 0; i--) {
-    console.log(`${i} bottles of soda on the wall, ${i} bottles of soda, take one pass it around ${i - 1} bottles of soda on the wall`);
+    console.log(`${i} bottles of soda on the wall, ${i} bottles of soda, take one pass it around ${i--} bottles of soda on the wall`);
   }
 }
 
@@ -187,7 +187,7 @@ function gradeCalculator(score) {
   } else if (score >= 80 && score < 90) {
     grade = 'B';
   } else if (score >= 70 && score < 80) {
-    grade = 'C'
+    grade = 'C';
   } else if (score >= 60 && score < 70) {
     grade = 'D';
   }
@@ -201,10 +201,19 @@ console.log(gradeCalculator(59));
 // Hint - you may need to study tomorrow's traning kit on arrays 
 // try looking up the .includes() method
 
+const vowels = 'aeiou';
+
 function countVowels(str) {
+  let numVowels = 0;
+  let lowerStr = str.toLowerCase();
 
+  for (let i = 0; i < str.length; i++) {
+    if (vowels.includes(lowerStr[i])) {
+      numVowels++;
+    }
+  }
+  return numVowels;
 }
-
 
 
 /************************************************************** Stretch **************************************************************/
@@ -212,6 +221,45 @@ function countVowels(str) {
 //update your rock papers sissors code below to take a prompt from a user using the window object
 
 
+function rockPapersSissors() {
+  let shoot = prompt('Rock, paper, or scissors?');
 
+  let phrase = `It's a draw`;
 
+  let compChoice = Math.random();
 
+  if (compChoice <= 0.33) {
+    compChoice = 'rock';
+  } else if (compChoice > 0.33 && compChoice <= 0.66) {
+    compChoice = 'scissors';
+  } else {
+    compChoice = 'paper';
+  }
+
+  if (shoot !== 'rock' || shoot !== 'paper' || shoot !== 'scissors') {
+    return 'Pick rock, paper, or scissors!!';
+  }
+
+  if (compChoice === 'rock') {
+    if (shoot === 'paper') {
+      phrase = 'You win';
+    } else if (shoot === 'scissors') {
+      phrase = 'You lose';
+    }
+  }
+  if (compChoice === 'scissors') {
+    if (shoot === 'rock') {
+      phrase = 'You win!';
+    } else if (shoot === 'paper') {
+      phrase = 'You lose!';
+    }
+  }
+  if (compChoice === 'paper') {
+    if (shoot === 'rock') {
+      phrase = 'You lose!';
+    } else if (shoot === 'scissors') {
+      phrase = 'You win!';
+    }
+  }
+  return phrase;
+}
