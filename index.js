@@ -78,6 +78,7 @@ function dogFeeder(weight, years) {
       return weight * 0.02;
     }
   }
+
   if (years >= 0.16 && years <= 0.33) {
     return weight * 0.1;
   } else if (years > 0.33 && years <= 0.58) {
@@ -98,7 +99,43 @@ console.log(dogFeeder(15, 1));
 
 function rockPapersSissors(shoot) {
 
+  let phrase = 'It\'s a draw!';
+
+  let compChoice = Math.random();
+
+  if (compChoice <= 0.33) {
+    compChoice = 'rock';
+  } else if (compChoice > 0.33 && compChoice <= 0.66) {
+    compChoice = 'scissors';
+  } else {
+    compChoice = 'paper';
+  }
+
+  if (compChoice === 'rock') {
+    if (shoot === 'paper') {
+      phrase = 'You win';
+    } else if (shoot === 'scissors') {
+      phrase = 'You lose';
+    }
+  }
+  if (compChoice === 'scissors') {
+    if (shoot === 'rock') {
+      phrase = 'You win!';
+    } else if (shoot === 'paper') {
+      phrase = 'You lose!';
+    }
+  }
+  if (compChoice === 'paper') {
+    if (shoot === 'rock') {
+      phrase = 'You lose!';
+    } else if (shoot === 'scissors') {
+      phrase = 'You win!';
+    }
+  }
+  return phrase;
 }
+
+rockPapersSissors('paper');
 
 
 /************************************************************** Task 5 **************************************************************/
@@ -142,16 +179,31 @@ annoyingSong(2);
 //60s should be D 
 //and anything below 60 should be F
 
+function gradeCalculator(score) {
+  let grade = 'F';
 
+  if (score >= 90) {
+    grade = 'A';
+  } else if (score >= 80 && score < 90) {
+    grade = 'B';
+  } else if (score >= 70 && score < 80) {
+    grade = 'C'
+  } else if (score >= 60 && score < 70) {
+    grade = 'D';
+  }
+  return grade;
+}
 
-
+console.log(gradeCalculator(59));
 
 /************************************************************** Stretch **************************************************************/
 //Create a function that counts the number of vowels within a string. It should handle both capitalized and uncapitalized vowels.
 // Hint - you may need to study tomorrow's traning kit on arrays 
 // try looking up the .includes() method
 
+function countVowels(str) {
 
+}
 
 
 
