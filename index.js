@@ -236,9 +236,9 @@ function rockPapersSissors() {
     compChoice = 'paper';
   }
 
-  if (shoot !== 'rock' || shoot !== 'paper' || shoot !== 'scissors') {
-    return 'Pick rock, paper, or scissors!!';
-  }
+  // if (shoot !== 'rock' || shoot !== 'paper' || shoot !== 'scissors') {
+  //   phrase = 'Pick rock, paper, or scissors';
+  // }
 
   if (compChoice === 'rock') {
     if (shoot === 'paper') {
